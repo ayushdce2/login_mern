@@ -23,16 +23,18 @@ function Signup() {
       const resJson = await res.data;
       // console.log(resJson,"<----------------------------responsone signup");
       console.log(resJson,"<----------------resposne LOCAL");
-      // const {message,success,error,msg} =resJson;
+      const {message,success,error,msg} =resJson;
       
-      // if(success){
-      //   handleSuccess(message);
-      //   setTimeout(() => {
-      //     navigate("/login");
-      //   }, 2000);
-      // }else if(error){
-      //   handleError(error?.details[0]?.message);
-      // }
+      if(success){
+        handleSuccess(message);
+        setTimeout(() => {
+          navigate("/login");
+        }, 1000);
+      }else if(error){
+        handleError(error?.details[0]?.message);
+      }else if(!success){
+        handleError(message);
+      }
       // if(msg){
       //   handleError(msg);
       // }
